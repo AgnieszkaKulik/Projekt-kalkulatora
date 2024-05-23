@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 
-from basic_functions import press, power2_fun, sqrt_fun, equal_fun
+from basic_functions import *
 
 """
     Funkcjie obsługiwane przez kalkulator
