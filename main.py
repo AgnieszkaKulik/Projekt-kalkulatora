@@ -31,7 +31,10 @@ def button_equal_fun():
     value = equal_fun()
     equation.set(value)
 
+def button_comma():
 
+    value = comma()
+    equation.set(value)
 """
     Ustawienia początkowe okna
 """
@@ -74,7 +77,7 @@ if __name__ == "__main__":
     """
         Dodanie dodatkowych operatów: równa się, przecinka oraz wartości ujemnej
     """
-    dot = Button(frame, text = ".", command=lambda: button_press('.')).grid(row=(5- (-1)//3), column= 2)
+    dot = Button(frame, text = ".", command=lambda: button_comma()).grid(row=(5- (-1)//3), column= 2)
     plus_minus = Button(frame, text = "+/-", command=lambda: button_press('-')).grid(row=(5- (-1)//3), column=0)
 
 
