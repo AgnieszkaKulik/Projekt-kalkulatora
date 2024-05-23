@@ -49,3 +49,22 @@ def equal_fun():
     except:
         expression = ""
         return "ERROR"
+        
+def comma():
+    global expression
+
+    if expression == "":
+        expression = "0."
+
+    else:
+        i = len(expression) - 1
+        while i >= 0:
+            if expression[i] == '.':
+                return expression
+            if expression[i] in ['+', '-', '/', '*']:
+                if i == len(expression) -1:
+                    expression += '0'
+                break
+            i -= 1
+        expression += '.'
+    return expression
