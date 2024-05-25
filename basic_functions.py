@@ -40,6 +40,7 @@ def sqrt_fun():
         return expression
 
     except:
+        expression = ""
         return "ERROR"
 #wylicza równianie, gdy wykreyje błąd zwraca error
 def equal_fun():
