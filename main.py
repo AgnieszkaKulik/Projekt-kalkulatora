@@ -17,33 +17,39 @@ def button_press(number):
 
 
 def button_power2_fun():
+    set_flag()
+
     value = power2_fun()
     equation.set(value)
 
+    add_to_history(value)
 
 def button_sqrt_fun():
+    set_flag()
+    
     value = sqrt_fun()
     equation.set(value)
 
+    add_to_history(value)
 
 def button_equal_fun():
-    global flag
-    flag = 1
+    set_flag()
 
     value = equal_fun()
     equation.set(value)
 
     add_to_history(value)
 
-    # Czyszczenie okna kalkulatora po wciśnięciu "="
-    clear_calculator()
-
-
+def set_flag():
+    global flag
+    flag = 1
+    
 def add_to_history(operation):
-    if len(history) >= 10:
-        history.pop()
-    history.insert(0, operation) # dodawanie do historii
-    update_history_listbox()
+    if operation != "ERROR":
+        if len(history) >= 10:
+            history.pop()
+        history.insert(0, operation) # dodawanie do historii
+        update_history_listbox()
 
 
 def update_history_listbox():
@@ -66,9 +72,7 @@ def clear_history():
 
 def use_history(index):
     if index >= 1 and index <= len(history):
-        temp = equation.get() + history[index-1]
-
-        equation.set(temp) # dostęp do historii
+        button_press(history[index-1])
 
 
 def clear_calculator():
