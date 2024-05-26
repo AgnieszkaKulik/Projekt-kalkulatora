@@ -29,7 +29,7 @@ def power2_fun():
     global expression
 
     value = str(eval(expression)**2)
-    return expression
+    return value
 
 #pierwiastek kwadratowy
 def sqrt_fun():
