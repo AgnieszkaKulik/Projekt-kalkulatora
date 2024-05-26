@@ -1,2 +1,2 @@
 # Projekt-kalkulatora
-Projekt zaliczeniowy z narzędzi pracy grupowej
+Projekt zaliczeniowy z narzędzi pracy grupowej.
