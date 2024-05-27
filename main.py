@@ -40,9 +40,16 @@ def button_equal_fun():
 
     add_to_history(value)
 
+def button_imaginary_part():
+    global expression
+    expression = imaginary_part()
+    equation.set(expression)
+
+
 def set_flag():
     global flag
     flag = 1
+
     
 def add_to_history(operation):
     if operation != "ERROR":
@@ -100,6 +107,9 @@ if __name__ == "__main__":
         buttons[i] = button
 
     button_0 = Button(frame, text="0", command=lambda: button_press("0")).grid(row=4, column=1)
+    button_j = Button(frame, text = "j", command = button_imaginary_part).grid(row=5, column=1)
+    button_lbrac = Button(frame, text="(", command=lambda: button_press("(")).grid(row=5, column=2)
+    button_rbrac = Button(frame, text=")", command=lambda: button_press(")")).grid(row=5, column=3)
 
     add = Button(frame, text="+", command=lambda: button_press('+')).grid(row=3, column=3)
     subtraction = Button(frame, text="-", command=lambda: button_press('-')).grid(row=2, column=3)
