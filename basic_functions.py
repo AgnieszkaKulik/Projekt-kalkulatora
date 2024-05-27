@@ -1,4 +1,3 @@
-import math
 import cmath
 
 expression = ""
@@ -10,12 +9,12 @@ def press(character, flag):
     global expression
 
     # sprawdza czy naciśnięty znak po równa się jest cyfrą (tworzy nowe równanie), sprawdza czy jest liczba lub czy jest to błąd
-    if flag and character.isnumeric() or expression == "ERROR":
+    if flag and character.isnumeric() or expression  == "ERROR" or expression == 'j':
         expression = str(character)
     # sprawdza czy pierwszy znak to minus
     elif len(expression) == 0 and not character.isnumeric():
-        if str(character) == '-':
-            expression = '-'
+        if str(character) in ['-', '(']:
+            expression = str(character)
     # sprawdza czy poprzedni znak to operator jeśli tak to zamienia go
     elif len(expression) > 0 and str(character) in operators:      #i== '+' or '-'or '/' or '*':
         if expression[-1] in operators:  #['+', '-', '/', '*']:
