@@ -6,9 +6,7 @@ from plotter import plot_graph
 
 # Dodaj funkcję obsługi przecinka dziesiętnego
 def button_comma():
-    global expression
-    expression = comma()
-    equation.set(expression)
+    equation.set(comma())
 
 def button_press(number):
     global flag
@@ -42,9 +40,10 @@ def button_equal_fun():
     add_to_history(value)
 
 def button_imaginary_part():
-    global expression
-    expression = imaginary_part()
-    equation.set(expression)
+    equation.set(imaginary_part())
+
+def button_reset():
+    equation.set(reset_fun()) 
 
 
 def set_flag():
@@ -104,7 +103,7 @@ if __name__ == "__main__":
     history = []
     show_history = True
 
-    text = Label(frame, height=2, textvariable=equation, width=30)
+    text = Label(frame, height=2, textvariable=equation, width=30, background='white')
     text.grid(column=0, row=0, columnspan=4, pady=10)
 
     button_frame = ttk.Frame(frame, padding=10)
@@ -143,6 +142,8 @@ if __name__ == "__main__":
     dot.grid(row=4, column=0, padx=5, pady=5)
     plus_minus = Button(button_frame, text="+/-", command=lambda: button_press('-'))
     plus_minus.grid(row=4, column=2, padx=5, pady=5)
+    reset = Button(button_frame, text='C', command=button_reset)
+    reset.grid(row=0,column=0, padx=5, pady=5)
     equal = Button(button_frame, text="=", command=button_equal_fun)
     equal.grid(row=4, column=3, padx=5, pady=5)
 

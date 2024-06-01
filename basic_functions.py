@@ -78,6 +78,10 @@ def comma():
         expression += '.'
     return expression
 
+def reset_fun():
+    global expression
+    expression = ""
+    return expression
 
 # import math
 # import cmath
