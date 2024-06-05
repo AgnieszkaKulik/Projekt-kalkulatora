@@ -40,7 +40,10 @@ def button_equal_fun():
     add_to_history(value)
 
 def button_imaginary_part():
-    equation.set(imaginary_part())
+    global flag
+
+    value, flag = imaginary_part(flag)
+    equation.set(value)
 
 def button_reset():
     equation.set(reset_fun()) 
