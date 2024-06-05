@@ -85,6 +85,8 @@ def clear_history():
 
 def use_history(index):
     if index >= 1 and index <= len(history):
+        set_flag()
+        button_reset()
         button_press(history[index-1])
 
 

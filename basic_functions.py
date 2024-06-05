@@ -16,8 +16,8 @@ def press(character, flag=0):
         if str(character) in ['-', '(', 'j']:
             expression = str(character)
     # sprawdza czy poprzedni znak to operator jeśli tak to zamienia go
-    elif len(expression) > 0 and str(character) in operators:      #i== '+' or '-'or '/' or '*':
-        if expression[-1] in operators:  #['+', '-', '/', '*']:
+    elif len(expression) > 0:      #i== '+' or '-'or '/' or '*':
+        if str(character) in operators and expression[-1] in operators:  #['+', '-', '/', '*']:
             expression = expression[:-1] + str(character)
             #niepozwala po znaku j wpisać ciąg dalczy liczby zespolonej
         elif not(expression[-1] == 'j' and character.isnumeric()):
@@ -31,9 +31,12 @@ def press(character, flag=0):
 # podnoszenie wpisanego równania do kwadratu
 def power2_fun():
     global expression
-
-    value = str(eval(expression) ** 2)
-    return value
+    try:
+        value = str(eval(expression) ** 2)
+        return value
+    except:
+        expression = ""
+        return "ERROR"
 
 
 # pierwiastek kwadratowy
@@ -66,7 +69,6 @@ def comma():
     
     pattern = r'(\+|\-|\*|\/|\(|\))'
     numbers = re.split(pattern, expression)  
-    print(numbers)
 
     if numbers == [] or numbers[-1] == '':
         expression += "0."
