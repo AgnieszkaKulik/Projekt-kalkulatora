@@ -21,7 +21,8 @@ def press(character, flag):
             expression = expression[:-1] + str(character)
         else:
             expression += str(character)
-
+    elif len(expression) > 0 and expression[-1] == 'j' and character.isnumeric():
+        pass
     else:
         expression += str(character)
 
