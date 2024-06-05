@@ -14,6 +14,9 @@ def button_press(number):
     value, flag = press(number, flag)
     equation.set(value)
 
+def button_change_char():
+    equation.set(change_char())
+
 
 def button_power2_fun():
     set_flag()
@@ -143,7 +146,7 @@ if __name__ == "__main__":
 
     dot = Button(button_frame, text=".", command=button_comma)
     dot.grid(row=4, column=0, padx=5, pady=5)
-    plus_minus = Button(button_frame, text="+/-", command=lambda: button_press('-'))
+    plus_minus = Button(button_frame, text="+/-", command=lambda: button_change_char())
     plus_minus.grid(row=4, column=2, padx=5, pady=5)
     reset = Button(button_frame, text='C', command=button_reset)
     reset.grid(row=0,column=0, padx=5, pady=5)
